@@ -1,0 +1,9 @@
+
+services:
+  portfolio:
+    build: .
+    image: daniel-portfolio:1.0
+    container_name: daniel-portfolio
+    restart: unless-stopped
+    ports:
+      - "127.0.0.1:8081:80"

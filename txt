@@ -1,0 +1,522 @@
+I recommend building a professional personal portfolio website that also serves as a central hub for your IT services, technical projects, and hosted SaaS applications.
+Instead of making it look like an online CV, we can design it to feel like a real IT professional's website—clean, modern, technical, and credible to recruiters, companies, and potential clients.
+Daniel Muraya — Portfolio Website
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+12
+
+
+
+
+
+
+
+
+
+Design inspiration: professional typography, restrained dark colors, real project screenshots, and straightforward navigation.
+Proposed website structure
+01
+Home
+Professional introduction, skills overview, featured projects and contact links.
+
+
+
+02
+About Me
+Your IT background, experience at St Andrew’s Turi, education and professional interests.
+
+
+
+03
+Technical Skills
+Networking, Windows/Linux, Active Directory, hardware, printing systems, AV and development.
+
+
+
+04
+Projects & SaaS
+Your live software platforms, GitHub repositories, technical projects and demos.
+
+
+
+05
+IT Services
+Network setup, troubleshooting, system administration, printer maintenance, outdoor screens and technical support.
+
+
+
+06
+Experience & Resume
+Work experience, accomplishments and downloadable CV/resume.
+
+
+
+07
+Contact
+Email, LinkedIn, GitHub, contact form and other professional links.
+
+
+
+How I would organize your homepage
+DM
+About
+Skills
+Projects
+
+
+
+IT INFRASTRUCTURE • NETWORK ENGINEERING • SYSTEMS
+Hi, I'm Daniel Muraya.
+I build, support and maintain reliable technology systems.
+IT professional experienced in network infrastructure, systems administration, technical support, hardware maintenance and software development.
+Explore My Projects ↗
+
+View Resume
+
+
+
+Network
+Infrastructure
+
+
+Systems
+Administration
+
+
+Software
+Projects
+
+
+
+Concept preview — not yet the coded website
+Your SaaS and project showcase
+This should be one of the most important sections. Each application should have its own project page, with screenshots, a description, technologies used, and links to the live platform.
+For example:
+
+Institutional Inventory Management System
+Inventory, departmental requests, purchasing, stock reporting and financial management.
+PHP • MySQL • JavaScript • HTML/CSS
+
+
+
+
+FileGuard — File Monitoring Project
+Python-based file event monitoring and activity logging.
+Python • Watchdog • JSON
+GitHub repository
+
+
+
+
+Your Hosted SaaS Applications
+Dedicated cards for your existing live applications, including access links, features, screenshots and demo information.
+
+
+
+For SaaS applications, I would distinguish between Live Demo, Client Login, and Case Study, so visitors can explore your work without exposing private administration areas or sensitive data.
+Recommended technology
+Given your background in web development, I recommend:
+- Frontend: HTML5, CSS3 and JavaScript, or React with Tailwind CSS for a more component-based site.
+- Backend: PHP only where needed, such as handling contact forms.
+- Hosting: Your existing hosting environment, if compatible.
+- Design: Responsive dark/light theme, subtle animations, clear navigation, and strong mobile support.
+- Extras: SEO, downloadable resume, LinkedIn/GitHub links, project screenshots, and contact form with spam protection.
+I would avoid excessive animations and gaming-style visuals. The website should communicate your real technical experience and let your projects do the talking.
+Before we build it
+I already have the information from your CV to prepare the About, Experience, Skills, and Services sections. I just need a few details for the live links.
+LinkedIn profile URL
+
+Hosted SaaS applications
+Include as many as you have. You can also add them later.
+Website technology
+React + Tailwind CSS (recommended)
+
+HTML + CSS + JavaScript + optional PHP
+
+
+Design preference
+Professional dark theme
+
+Clean light theme
+
+Dark and light mode toggle
+
+
+Start Building My Portfolio 
+Once you provide these details, we can start building the actual responsive website, with your hosted SaaS platforms integrated into the portfolio rather than just listed as plain links.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Build my professional portfolio website using my CV details. LinkedIn URL: https://www.linkedin.com/in/daniel-muraya-153a07381/. Hosted SaaS names and URLs: https://srv2048227.hstgr.cloud. Preferred technology: html. Preferred design: both. Include GitHub, projects, skills, services, resume and contact sections. Start with the actual website code.
+
+
+
+
+
+
+
+
+
+
+
+
+Worked for 46s
+
+
+
+
+
+
+I'm building your portfolio as a responsive HTML, CSS, and JavaScript website, with no framework or database required.
+The website will include a professional introduction, your technical skills, IT services, work experience, projects, hosted SaaS application, LinkedIn, GitHub, contact options, and a printable resume.
+I also checked your hosted application: it currently presents FileGuard Directory Monitor, a Windows file-monitoring system with a cloud dashboard. I'll feature it as your live software project rather than using a generic SaaS placeholder. 
+
+srv2048227.hstgr.cloud
+
+
+
+The design will use a clean, technical style with a dark/light mode switch, mobile navigation, subtle animations, and dedicated project cards.
+Your portfolio website is ready
+
+The complete website is packaged with its HTML, CSS, JavaScript, printable resume, and setup instructions.
+daniel-muraya-portfolio.zip
+
+8.3 KB
+
+Download complete website
+
+
+Individual files
+Website HTML
+Resume HTML
+Setup guide
+
+
+How to run it
+1. Download and extract the ZIP.
+2. Open index.html in Chrome or another browser.
+3. Switch between dark and light modes and test the navigation.
+4. Open resume.html to print or save your resume as a PDF.
+For hosting, upload the two HTML files to your portfolio website's public_html directory.
+Important: Your existing Hostinger URL is already serving FileGuard. Don't replace its files with the portfolio. Use a separate domain or subdomain for your personal website.
+The GitHub profile link is included, although I couldn't independently verify the repository. The website is fully static, so you can edit it in VS Code and publish it without setting up PHP or MySQL.
+A good next upgrade would be adding actual project screenshots, your own domain, and individual case-study pages for your SaaS applications.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+after this i want to create a docker image for this to deploy it in hostinger VPS
+i need youre explanation step by step
+
+
+
+
+
+
+
+
+
+
+
+
+
+Deploy your portfolio to Hostinger VPS using Docker
+Since your portfolio uses HTML, CSS, and JavaScript, we can package the entire website into a Docker image and deploy it on your Hostinger VPS using Nginx.
+You won't need Apache, PHP, MySQL, or Node.js to run this portfolio.
+1. Understand how the deployment works
+
+Three concepts are important:
+- Dockerfile: Instructions telling Docker how to build your website image.
+- Docker image: A packaged version of your website and Nginx.
+- Docker container: A running instance of that image on your VPS.
+We'll first build and test the image on your computer, then deploy it to Hostinger.
+2. Prepare your project folder
+Extract your downloaded portfolio ZIP into a folder such as:
+daniel-portfolio/
+├── index.html
+├── resume.html
+├── README.txt
+├── Dockerfile
+├── nginx.conf
+├── compose.yaml
+└── .dockerignore
+
+
+The last four files are the deployment configuration files we'll create.
+3. Create your Dockerfile
+In VS Code, open your portfolio folder and create a file named Dockerfile, with no extension.
+
+FROM nginx:stable-alpine
+
+COPY nginx.conf /etc/nginx/conf.d/default.conf
+
+COPY index.html /usr/share/nginx/html/index.html
+COPY resume.html /usr/share/nginx/html/resume.html
+
+EXPOSE 80
+
+
+
+What each instruction does:
+Instruction	Purpose
+FROM	Uses an existing lightweight Nginx image
+COPY nginx.conf	Configures the web server
+COPY index.html	Adds your homepage
+COPY resume.html	Adds your resume page
+EXPOSE 80	Documents the HTTP port Nginx listens on
+Nginx is responsible for serving your HTML pages to visitors.
+4. Create the Nginx configuration
+Create nginx.conf in the same folder.
+
+server {
+    listen 80;
+    server_name _;
+
+    root /usr/share/nginx/html;
+    index index.html;
+
+    location / {
+        try_files $uri $uri/ =404;
+    }
+
+    location /health {
+        access_log off;
+        return 200 "OK\n";
+        add_header Content-Type text/plain;
+    }
+}
+
+
+
+This configuration serves your website and provides a simple /health endpoint to check whether Nginx is responding.
+5. Build the Docker image
+Install Docker Desktop on your Windows computer if you haven't already, and make sure Docker Engine is running.
+Open PowerShell in your portfolio folder:
+cd "C:\path\to\daniel-portfolio"
+
+
+Build the image:
+docker build -t daniel-portfolio:1.0 .
+
+
+Check that Docker created it:
+docker images
+
+
+You should see an image named daniel-portfolio with the tag 1.0.
+6. Test the image locally
+Start your container:
+docker run -d `
+  --name daniel-portfolio `
+  -p 8080:80 `
+  daniel-portfolio:1.0
+
+
+The -p 8080:80 option maps port 8080 on your computer to port 80 inside the container.
+Open:
+http://localhost:8080
+You should see your portfolio.
+To inspect the container:
+docker ps
+docker logs daniel-portfolio
+
+
+To stop and remove the test container:
+docker stop daniel-portfolio
+docker rm daniel-portfolio
+
+
+7. Create Docker Compose configuration
+Docker Compose makes it easier to deploy, restart, and update your portfolio.
+Create compose.yaml:
+
+services:
+  portfolio:
+    build: .
+    image: daniel-portfolio:1.0
+    container_name: daniel-portfolio
+    restart: unless-stopped
+    ports:
+      - "127.0.0.1:8081:80"
+
+
+
+I chose port 8081 because you already have a hosted application. This helps avoid conflicts with existing services.
+The 127.0.0.1 binding means only software running on the VPS can access this container directly. Later, a reverse proxy will make the portfolio publicly accessible over HTTPS.
+You can test this configuration locally with:
+docker compose up -d --build
+docker compose ps
+
+
+8. Connect to your Hostinger VPS
+Open your Hostinger hPanel and find your VPS IP address.
+In PowerShell:
+ssh root@YOUR_VPS_IP
+
+
+Replace YOUR_VPS_IP with the actual address. If Hostinger provided a different SSH username, use that instead.
+Once connected, check your server:
+cat /etc/os-release
+docker --version
+docker compose version
+docker ps
+
+
+Hostinger provides a Docker VPS template with Docker preinstalled. If you used that template, you may not need to install anything else. 
+
+Hostinger
+
+
+
+If Docker isn't installed, follow the official Docker installation guide for your VPS operating system.
+Important: Before making changes, inspect the running containers using docker ps. Don't stop existing applications, reinstall the VPS operating system, or overwrite existing reverse-proxy settings.
+9. Transfer your portfolio to the VPS
+For your first deployment, I recommend transferring the source files and building the Docker image directly on the VPS.
+From Windows PowerShell, outside your SSH session, navigate to the folder containing your portfolio:
+cd "C:\path\to\daniel-portfolio"
+
+
+Create a deployment directory on the VPS:
+ssh root@YOUR_VPS_IP "mkdir -p /opt/daniel-portfolio"
+
+
+Transfer your files:
+scp index.html resume.html Dockerfile nginx.conf compose.yaml root@YOUR_VPS_IP:/opt/daniel-portfolio/
+
+
+If you add CSS, JavaScript, or image folders later, transfer those too and update the Dockerfile to copy them into Nginx's HTML directory.
+10. Build and start the container on Hostinger
+Reconnect to the VPS:
+ssh root@YOUR_VPS_IP
+
+
+Navigate to the project:
+cd /opt/daniel-portfolio
+
+
+Build and deploy:
+docker compose up -d --build
+
+
+Check the result:
+docker compose ps
+docker compose logs --tail=50
+
+
+Test from inside the VPS:
+curl http://127.0.0.1:8081/health
+
+
+Expected response:
+OK
+
+
+Your website is now running in Docker on the VPS, but it isn't publicly accessible yet.
+11. Connect your domain and enable HTTPS
+Because your VPS may already be hosting FileGuard, the safest approach is to use a separate domain or subdomain for your portfolio.
+For example:
+Application	Example address	Internal port
+FileGuard	Your existing hosted URL	Existing configuration
+Portfolio	portfolio.yourdomain.com	8081
+These are examples, not DNS records that have been created.
+The deployment should work like this:
+
+To configure this:
+1. Create a DNS A record pointing your portfolio subdomain to your VPS IP.
+2. Identify whether your VPS already uses Nginx, Apache, Caddy, Traefik, or Nginx Proxy Manager.
+3. Configure that existing reverse proxy to forward portfolio traffic to 127.0.0.1:8081.
+4. Enable an HTTPS certificate for the portfolio domain.
+5. Verify the website loads over HTTPS.
+Hostinger also supports managing Docker projects through its Docker Manager. 
+
+Hostinger
+
+
+
+Avoid adding a second reverse proxy on ports 80 and 443 if another application is already using them.
+12. Updating your website
+Whenever you change your portfolio HTML:
+1. Save the updated files on your computer.
+2. Transfer them to /opt/daniel-portfolio.
+3. Rebuild the image and recreate the container:
+cd /opt/daniel-portfolio
+
+docker compose up -d --build
+
+
+View the logs:
+docker compose logs --tail=50
+
+
+Your updated portfolio will now be served from the rebuilt container.
+Later, we can automate this process using GitHub so that approved changes to your portfolio repository trigger a deployment.
+
+Your deployment checklist
+Deployment progress
+0 / 8
+
+
+
+[ ] Portfolio HTML files prepared
+[ ] Dockerfile and nginx.conf created
+[ ] Docker image built successfully
+[ ] Website tested locally
+[ ] Hostinger VPS Docker installation verified
+[ ] Files transferred to VPS
+[ ] Container running successfully
+[ ] Domain and HTTPS configured
+
+Before we configure your actual VPS
+One important question: Is FileGuard already running on the same Hostinger VPS where you want to deploy your portfolio?
+
+Yes, FileGuard is already running on this VPS
+
+No, the portfolio will use a different VPS
+
+I'm not sure how the VPS is configured
+
+Continue with My VPS Setup 
+This matters because I want us to deploy your portfolio without interfering with your existing SaaS application.
