@@ -1,26 +1,25 @@
 name: daniel-portfolio
+
 services:
-  web:
+  portfolio:
     build: .
     image: daniel-portfolio:1.0
     restart: unless-stopped
-    healthcheck:
-      test: ["CMD", "wget", "-q", "-O", "/dev/null", "http://127.0.0.1/health"]
-      interval: 15s
-      timeout: 5s
-      retries: 3
-      start_period: 10s
-    networks: [proxy]
+    networks:
+      - frontend
+
     labels:
       - "traefik.enable=true"
-      - "traefik.docker.network=${TRAEFIK_NETWORK:?Set TRAEFIK_NETWORK in .env}"
-      - "traefik.http.routers.daniel-portfolio.rule=Host(`${PORTFOLIO_DOMAIN:?Set PORTFOLIO_DOMAIN in .env}`)"
-      - "traefik.http.routers.daniel-portfolio.entrypoints=websecure"
-      - "traefik.http.routers.daniel-portfolio.tls=true"
-      - "traefik.http.routers.daniel-portfolio.tls.certresolver=letsencrypt"
-      - "traefik.http.routers.daniel-portfolio.service=daniel-portfolio"
-      - "traefik.http.services.daniel-portfolio.loadbalancer.server.port=80"
+      - "traefik.docker.network=fileguard_frontend"
+      - "traefik.http.routers.portfolio.rule=Host(`portfolio.netsecdan.tech`)"
+      - "traefik.http.routers.portfolio.entrypoints=websecure"
+      - "traefik.http.routers.portfolio.tls=true"
+      - "traefik.http.routers.portfolio.tls.certresolver=letsencrypt"
+      - "traefik.http.routers.portfolio.service=portfolio"
+      - "traefik.http.services.portfolio.loadbalancer.server.port=80"
+
 networks:
-  proxy:
+  frontend:
     external: true
-    name: ${TRAEFIK_NETWORK:?Set TRAEFIK_NETWORK in .env}
+    name: fileguard_frontend
+
